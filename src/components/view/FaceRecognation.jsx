@@ -12,8 +12,8 @@ const FaceRecognation = () => {
       }}
     >
       <iframe
-        data-src="http://127.0.0.1:5500/mfalogin/public/FaceRecognition/index.html"
-        src="http://127.0.0.1:5500/mfalogin/public/FaceRecognition/index.html"
+        data-src={process.env.PUBLIC_URL + "/FaceRecognition/index.html"}
+        src={process.env.PUBLIC_URL + "/FaceRecognition/index.html"}
         allowFullScreen={true}
         allow="autoplay"
         data-ll-status="loaded"

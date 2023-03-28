@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { authentication, getUserById } from "../configs/constants";
 import LoginModal from "./LoginModal";
+import { useNavigate } from "react-router-dom";
 const LoginContent = () => {
+  const history = useNavigate();
   const [userInput, setUserInput] = useState("");
   const [tempData, setTempData] = useState(undefined);
   const [isSpinning, setSpinning] = useState(true);
@@ -50,6 +52,7 @@ const LoginContent = () => {
       setTempData(undefined);
       setSpinning(false);
       clearInterval(window.interval);
+      history("/face");
     }
   }, [tempData, isWaitForPasswordModal]);
 
