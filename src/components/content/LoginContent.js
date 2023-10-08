@@ -17,10 +17,13 @@ const LoginContent = () => {
   };
 
   const toggleWaitForPassword = () => {
+    /*eslint-disable*/
+    console.log(message);
     if (message && message[0]?.isSecured === 0) {
       setSpinning(true);
+    } else {
+      setWaitForPasswordModal(!isWaitForPasswordModal);
     }
-    setWaitForPasswordModal(!isWaitForPasswordModal);
   };
 
   const submitUsername = async () => {
@@ -48,7 +51,11 @@ const LoginContent = () => {
   }, [message]);
 
   useEffect(() => {
-    if (tempData && tempData[0]?.isSecured !== 0) {
+    if (
+      tempData &&
+      tempData[0]?.isSecured !== undefined &&
+      tempData[0]?.isSecured !== 0
+    ) {
       setTempData(undefined);
       setSpinning(false);
       clearInterval(window.interval);
